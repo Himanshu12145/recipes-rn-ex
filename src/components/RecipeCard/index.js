@@ -2,6 +2,7 @@ import React from "react";
 import { Pressable } from "react-native";
 import { Image, Text, View } from "react-native";
 import colors from "../../constants/colors";
+import Rating from "../Rating";
 import styles from "./styles";
 
 const RecipeCard = ({ title, image, author, rating, time }) => {
@@ -9,9 +10,12 @@ const RecipeCard = ({ title, image, author, rating, time }) => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.title} numberOfLines={1}>
-          {title}
-        </Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+          <Rating rating={4.5} />
+        </View>
         <Image
           style={styles.image}
           source={{
@@ -19,7 +23,7 @@ const RecipeCard = ({ title, image, author, rating, time }) => {
           }}
         />
       </View>
-      <View style={[styles.row, { justifyContent: "space-between" }]}>
+      <View style={styles.footer}>
         <View style={styles.row}>
           <Image source={{ uri: author?.image }} style={styles.authorImage} />
           <Text style={styles.footerText}>By {author?.name}</Text>
