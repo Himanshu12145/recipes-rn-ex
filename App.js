@@ -1,16 +1,39 @@
 import { StyleSheet, Text, View } from "react-native";
 import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./src/screens/Home";
 import Splash from "./src/screens/Splash";
+import Search from "./src/screens/Search";
+import { Pressable, Image } from "react-native";
 
 const Stack = createStackNavigator();
 
+const BackButton = (props) => {
+  return (
+    <Pressable onPress={props.onPress}>
+      <Image style={styles.back} source={require("./assets/back.png")} />
+    </Pressable>
+  );
+};
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "#ffffff",
+  },
+};
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }}>
+    <NavigationContainer theme={theme}>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerShadowVisible: false,
+        }}
+      >
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -19,7 +42,14 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerLeft: null, gestureEnabled: false }}
+          options={{ headerLeft: null }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{
+            headerLeft: (props) => <BackButton {...props} />,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -27,10 +57,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  back: {
+    height: 24,
+    width: 24,
+    margin: 16,
   },
 });
