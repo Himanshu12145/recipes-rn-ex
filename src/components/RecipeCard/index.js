@@ -5,10 +5,9 @@ import colors from "../../constants/colors";
 import Rating from "../Rating";
 import styles from "./styles";
 
-const RecipeCard = ({ title, image, author, rating, time }) => {
-  console.log(title);
+const RecipeCard = ({ title, style, image, author, rating, time }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={styles.row}>
         <View style={{ flex: 1 }}>
           <Text style={styles.title} numberOfLines={1}>
