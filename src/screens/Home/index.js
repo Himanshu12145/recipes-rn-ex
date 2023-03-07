@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { SafeAreaView, Text, FlatList } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import Input from "../../components/Input";
 import Title from "../../components/Title";
 import Categories from "../../components/Categories";
@@ -11,6 +11,7 @@ import { HealthyRecipeContext, RecipesContext } from "../../../App";
 const Home = ({ navigation }) => {
   const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState();
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const { healthyRecipes } = useContext(HealthyRecipeContext);
   const { recipes } = useContext(RecipesContext);
 
@@ -27,6 +28,18 @@ const Home = ({ navigation }) => {
 
     setTags(tagsList);
   }, [recipes]);
+  useEffect(() => {
+    if (selectedTag) {
+      const filteredItems = recipes?.filter((rec) => {
+        const tag = rec?.tags?.find((t) => t?.name === selectedTag);
+        return !!tag;
+      });
+      setFilteredRecipes(filteredItems);
+    } else {
+      setFilteredRecipes(recipes);
+    }
+  }, [selectedTag, recipes]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Input pressable onPress={() => navigation.navigate("Search")} />
@@ -43,6 +56,7 @@ const Home = ({ navigation }) => {
             style={index === 0 ? { marginLeft: 24 } : {}}
             title={item?.name}
             time={item?.cook_time_minutes}
+            onPress={() => navigation.navigate("RecipeDetails", { item })}
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}
             author={
@@ -65,7 +79,7 @@ const Home = ({ navigation }) => {
 
       <FlatList
         horizontal
-        data={recipes}
+        data={filteredRecipes}
         style={{ marginHorizontal: -24 }}
         keyExtractor={(item) => String(item?.id)}
         showsHorizontalScrollIndicator={false}
@@ -76,6 +90,7 @@ const Home = ({ navigation }) => {
             servings={item?.num_servings}
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}
+            onPress={() => navigation.navigate("RecipeDetails", { item })}
             author={
               item?.credits?.length
                 ? {

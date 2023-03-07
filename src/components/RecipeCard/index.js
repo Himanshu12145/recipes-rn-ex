@@ -1,13 +1,11 @@
 import React from "react";
-import { Pressable } from "react-native";
-import { Image, Text, View } from "react-native";
-import colors from "../../constants/colors";
+import { TouchableOpacity, Image, Text, View } from "react-native";
 import Rating from "../Rating";
 import styles from "./styles";
 
-const RecipeCard = ({ title, style, image, author, rating, time }) => {
+const RecipeCard = ({ title, style, image, author, rating, time, onPress }) => {
   return (
-    <View style={[styles.container, style]}>
+    <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
       <View style={styles.row}>
         <View style={{ flex: 1 }}>
           <Text numberOfLines={1} style={styles.title}>
@@ -42,7 +40,7 @@ const RecipeCard = ({ title, style, image, author, rating, time }) => {
           <View />
         )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

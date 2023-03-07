@@ -7,6 +7,7 @@ import Splash from "./src/screens/Splash";
 import Search from "./src/screens/Search";
 import { Pressable, Image, StyleSheet } from "react-native";
 import { getRecipesList } from "./src/http";
+import RecipeDetails from "./src/screens/RecipeDetails";
 
 const Stack = createStackNavigator();
 export const RecipesContext = React.createContext();
@@ -76,6 +77,14 @@ export default function App() {
               component={Search}
               options={{
                 headerLeft: (props) => <BackButton {...props} />,
+              }}
+            />
+            <Stack.Screen
+              name="RecipeDetails"
+              component={RecipeDetails}
+              options={{
+                headerLeft: (props) => <BackButton {...props} />,
+                title: "",
               }}
             />
           </Stack.Navigator>

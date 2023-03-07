@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FlatList, SafeAreaView, View, Text } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import { RecipesContext } from "../../../App";
 import Card from "../../components/Card";
 import Input from "../../components/Input";
@@ -34,6 +34,7 @@ const Search = ({ navigation }) => {
         renderItem={({ item, index }) => (
           <Card
             title={item?.name}
+            onPress={() => navigation.navigate("RecipeDetails", { item })}
             servings={item?.num_servings}
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}
