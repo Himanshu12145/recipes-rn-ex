@@ -10,30 +10,37 @@ const RecipeCard = ({ title, style, image, author, rating, time }) => {
     <View style={[styles.container, style]}>
       <View style={styles.row}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.title} numberOfLines={1}>
+          <Text numberOfLines={1} style={styles.title}>
             {title}
           </Text>
-          <Rating rating={4.5} />
+
+          <Rating rating={rating} />
         </View>
-        <Image
-          style={styles.image}
-          source={{
-            uri: "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg",
-          }}
-        />
+
+        <Image style={styles.image} source={{ uri: image }} />
       </View>
+
       <View style={styles.footer}>
-        <View style={styles.row}>
-          <Image source={{ uri: author?.image }} style={styles.authorImage} />
-          <Text style={styles.footerText}>By {author?.name}</Text>
-        </View>
-        <View style={styles.row}>
-          <Image
-            source={require("../../../assets/timer.png")}
-            style={styles.timerIcon}
-          />
-          <Text style={styles.footerText}>{time}</Text>
-        </View>
+        {author ? (
+          <View style={styles.row}>
+            <Image style={styles.authorImage} source={{ uri: author?.image }} />
+            <Text style={styles.footerText}>By {author?.name}</Text>
+          </View>
+        ) : (
+          <View />
+        )}
+
+        {time ? (
+          <View style={styles.row}>
+            <Image
+              style={styles.timerIcon}
+              source={require("../../../assets/timer.png")}
+            />
+            <Text style={styles.footerText}>{time}</Text>
+          </View>
+        ) : (
+          <View />
+        )}
       </View>
     </View>
   );

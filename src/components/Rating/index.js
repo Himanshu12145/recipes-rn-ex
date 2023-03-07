@@ -9,6 +9,7 @@ const Rating = ({ rating }) => {
       if (Math.round(rating) >= star) {
         return (
           <Image
+            key={star}
             style={styles.star}
             source={require("../../../assets/star.png")}
           />
@@ -16,6 +17,7 @@ const Rating = ({ rating }) => {
       }
       return (
         <Image
+          key={star}
           style={styles.star}
           source={require("../../../assets/starEmpty.png")}
         />
