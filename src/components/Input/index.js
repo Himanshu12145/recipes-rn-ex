@@ -5,11 +5,12 @@ import colors from "../../constants/colors";
 import styles from "./styles";
 
 const Input = ({
-  placeholder = "Search Recipe",
   showSearchIcon = true,
   style,
   pressable,
   onPress,
+  placeholder = "Search Recipe",
+  ...props
 }) => {
   const renderInput = () => {
     return (
@@ -21,6 +22,7 @@ const Input = ({
           />
         ) : null}
         <TextInput
+          {...props}
           editable={!pressable}
           placeholderTextColor={colors.lightGrey}
           style={styles.input}

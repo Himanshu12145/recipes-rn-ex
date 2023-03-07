@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import "react-native-gesture-handler";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./src/screens/Home";
 import Splash from "./src/screens/Splash";
 import Search from "./src/screens/Search";
-import { Pressable, Image } from "react-native";
-import React, { useEffect, useState } from "react";
+import { Pressable, Image, StyleSheet } from "react-native";
 import { getRecipesList } from "./src/http";
 
 const Stack = createStackNavigator();
