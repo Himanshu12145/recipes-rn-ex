@@ -34,7 +34,9 @@ const Search = ({ navigation }) => {
         renderItem={({ item, index }) => (
           <Card
             title={item?.name}
-            onPress={() => navigation.navigate("RecipeDetails", { item })}
+            onPress={() =>
+              navigation.navigate("RecipeDetails", { item, name: item?.name })
+            }
             servings={item?.num_servings}
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}

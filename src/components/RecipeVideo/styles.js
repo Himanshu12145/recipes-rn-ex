@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: 20,
     justifyContent: "center",
-    // backgroundColor: "#ecf0f1",
+    backgroundColor: colors.black,
     borderRadius: 12,
   },
   watermark: {

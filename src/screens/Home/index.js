@@ -56,7 +56,9 @@ const Home = ({ navigation }) => {
             style={index === 0 ? { marginLeft: 24 } : {}}
             title={item?.name}
             time={item?.cook_time_minutes}
-            onPress={() => navigation.navigate("RecipeDetails", { item })}
+            onPress={() =>
+              navigation.navigate("RecipeDetails", { item, name: item?.name })
+            }
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}
             author={
@@ -90,7 +92,9 @@ const Home = ({ navigation }) => {
             servings={item?.num_servings}
             image={item?.thumbnail_url}
             rating={item?.user_ratings?.score}
-            onPress={() => navigation.navigate("RecipeDetails", { item })}
+            onPress={() =>
+              navigation.navigate("RecipeDetails", { item, name: item?.name })
+            }
             author={
               item?.credits?.length
                 ? {

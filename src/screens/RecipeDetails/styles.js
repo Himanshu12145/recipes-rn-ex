@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 180,
     borderRadius: 10,
-    marginBottom: 12,
+    marginVertical: 12,
   },
   row: {
     flexDirection: "row",
@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 12,
     color: colors.lightGrey2,
+  },
+  descValue: {
+    fontSize: 12,
+    color: colors.lightGrey2,
+    marginBottom: 23,
   },
   authorName: {
     textAlign: "right",

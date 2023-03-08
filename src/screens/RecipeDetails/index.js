@@ -6,10 +6,11 @@ import RecipeVideo from "../../components/RecipeVideo";
 
 const RecipeDetails = ({ route }) => {
   const { item } = route?.params || {};
-  console.log(item?.video_url);
+  // console.log(item?.renditions?.poster_url);
   const instructions = item?.instructions || [];
   const authorName = item.credits[0].name;
   const videoUrl = item?.video_url;
+  const description = item?.description;
   const nutrition = item?.nutrition;
   delete nutrition?.updated_at;
   const nutritionKeys = Object.keys(nutrition || {});
@@ -17,9 +18,29 @@ const RecipeDetails = ({ route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
+        {/* <Title
+          style={{
+            marginBottom: 32,
+            textAlign: "center",
+            fontWeight: "900",
+            fontSize: 21,
+          }}
+          text={item?.name}
+        /> */}
+
         <Image style={styles.image} source={{ uri: item?.thumbnail_url }} />
 
-        <Title style={{ marginBottom: 32 }} text={item?.name} />
+        {description ? (
+          <View>
+            <Title
+              style={{ marginTop: 32, marginBottom: 16 }}
+              text="Description"
+            />
+            <Text style={styles.descValue}>{description}</Text>
+          </View>
+        ) : (
+          <Text style={styles.value}>No Description Found...</Text>
+        )}
 
         {nutritionKeys.map((key) => (
           <View style={styles.row} key={key}>
@@ -50,11 +71,13 @@ const RecipeDetails = ({ route }) => {
           <>
             <Title
               style={{ marginTop: 32, marginBottom: 16 }}
-              text="Video Explanation"
+              text="Video Recipe"
             />
             <RecipeVideo url={videoUrl} />
           </>
-        ) : null}
+        ) : (
+          <Text style={styles.value}>No Video Found...</Text>
+        )}
 
         {authorName ? (
           <Text style={styles.authorName}>

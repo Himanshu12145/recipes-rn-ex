@@ -10,6 +10,7 @@ import { getRecipesList } from "./src/http";
 import RecipeDetails from "./src/screens/RecipeDetails";
 
 const Stack = createStackNavigator();
+
 export const RecipesContext = React.createContext();
 export const HealthyRecipeContext = React.createContext();
 const BackButton = (props) => {
@@ -82,10 +83,11 @@ export default function App() {
             <Stack.Screen
               name="RecipeDetails"
               component={RecipeDetails}
-              options={{
+              options={({ route }) => ({
                 headerLeft: (props) => <BackButton {...props} />,
-                title: "",
-              }}
+                title: route.params.name,
+                headerTitleStyle: { fontWeight: "bold" },
+              })}
             />
           </Stack.Navigator>
         </NavigationContainer>
