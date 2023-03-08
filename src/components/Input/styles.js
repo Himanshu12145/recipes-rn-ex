@@ -5,14 +5,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    borderColor: colors.lightGrey,
+    borderColor: colors.tealGreen,
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
     marginVertical: 16,
   },
   input: {
-    color: colors.black,
+    color: colors.tealGreen,
     fontSize: 14,
     flex: 1,
   },

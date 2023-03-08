@@ -6,7 +6,7 @@ const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     borderRadius: 12,
-    backgroundColor: "rgba(217,217,217,0.5)",
+    backgroundColor: colors.lightestTealGreen,
     padding: 10,
     width: width * 0.4,
     marginVertical: 32,
@@ -21,13 +21,14 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   label: {
-    color: colors.lightGrey2,
+    color: colors.grey,
     fontSize: 11,
     marginTop: 8,
     marginBottom: 4,
   },
   value: {
-    color: colors.grey,
+    color: colors.lightGrey1,
+    // color: colors.grey,
     fontSize: 11,
     fontWeight: "bold",
   },

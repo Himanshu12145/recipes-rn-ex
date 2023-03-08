@@ -30,24 +30,31 @@ const RecipeDetails = ({ route }) => {
 
         <Image style={styles.image} source={{ uri: item?.thumbnail_url }} />
 
+        <Title style={{ marginTop: 32, marginBottom: 16 }} text="Description" />
         {description ? (
           <View>
-            <Title
-              style={{ marginTop: 32, marginBottom: 16 }}
-              text="Description"
-            />
-            <Text style={styles.descValue}>{description}</Text>
+            <Text style={styles.descriptionText}>{description}</Text>
           </View>
         ) : (
-          <Text style={styles.value}>No Description Found...</Text>
+          <>
+            <Text style={styles.descValue}>No Description Found...</Text>
+          </>
         )}
 
+        <Title
+          style={{ marginTop: 32, marginBottom: 16 }}
+          text="Nutritional Benefits"
+        />
         {nutritionKeys.map((key) => (
           <View style={styles.row} key={key}>
             <Text style={styles.key}>{key}</Text>
-            <Text style={styles.value}>{nutrition[key]}</Text>
+            <Text style={styles.value}>{nutrition[key]}.00 % </Text>
           </View>
         ))}
+
+        {!nutritionKeys.length ? (
+          <Text style={styles.descValue}>No Nutritional Benefits Found...</Text>
+        ) : null}
 
         <Title
           style={{ marginTop: 32, marginBottom: 16 }}
@@ -64,7 +71,7 @@ const RecipeDetails = ({ route }) => {
         ))}
 
         {!instructions.length ? (
-          <Text style={styles.value}>No Instructions Found...</Text>
+          <Text style={styles.descValue}>No Instructions Found...</Text>
         ) : null}
 
         {videoUrl ? (

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 180,
+    height: 200,
     borderRadius: 10,
     marginVertical: 12,
   },
@@ -16,20 +16,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "rgba(217,217,217,0.5)",
+    backgroundColor: colors.tealGreen,
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     marginVertical: 4,
   },
   key: {
-    fontSize: 12,
+    fontSize: 18,
     color: colors.black,
     textTransform: "capitalize",
+    fontWeight: "bold",
   },
   value: {
-    fontSize: 12,
-    color: colors.lightGrey2,
+    fontSize: 18,
+    color: colors.lightGrey1,
+    fontWeight: "bold",
   },
   descValue: {
     fontSize: 12,
@@ -57,6 +59,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.black,
     flex: 1,
+  },
+  descriptionText: {
+    fontSize: 14,
+    color: colors.lightGrey3,
+    flex: 1,
+    marginBottom: 23,
   },
 });
 

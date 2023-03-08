@@ -8,6 +8,7 @@ import Search from "./src/screens/Search";
 import { Pressable, Image, StyleSheet } from "react-native";
 import { getRecipesList } from "./src/http";
 import RecipeDetails from "./src/screens/RecipeDetails";
+import colors from "./src/constants/colors";
 
 const Stack = createStackNavigator();
 
@@ -71,13 +72,23 @@ export default function App() {
             <Stack.Screen
               name="Home"
               component={Home}
-              options={{ headerLeft: null }}
+              options={{
+                headerLeft: null,
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                  color: colors.purple,
+                },
+              }}
             />
             <Stack.Screen
               name="Search"
               component={Search}
               options={{
                 headerLeft: (props) => <BackButton {...props} />,
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                  color: colors.tealGreen,
+                },
               }}
             />
             <Stack.Screen
@@ -86,7 +97,10 @@ export default function App() {
               options={({ route }) => ({
                 headerLeft: (props) => <BackButton {...props} />,
                 title: route.params.name,
-                headerTitleStyle: { fontWeight: "bold" },
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                  color: colors.purple,
+                },
               })}
             />
           </Stack.Navigator>

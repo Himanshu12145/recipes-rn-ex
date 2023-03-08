@@ -3,7 +3,7 @@ import colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.purple,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",

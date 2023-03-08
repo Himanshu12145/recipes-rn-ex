@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   bigTitle: {
     fontSize: 50,
-    color: colors.white,
+    color: colors.purple,
     paddingHorizontal: 30,
     textAlign: "center",
     fontWeight: "bold",

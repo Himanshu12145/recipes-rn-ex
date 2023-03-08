@@ -6,7 +6,7 @@ const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     borderRadius: 10,
-    backgroundColor: colors.white,
+    backgroundColor: colors.lightTealGreen,
     padding: 10,
     width: width * 0.7,
     marginBottom: 32,
@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.32,
     shadowRadius: 5.46,
     // Android
-    elevation: 9,
+    elevation: 19,
   },
   title: {
     fontSize: 14,
-    color: colors.grey,
+    color: colors.black,
     fontWeight: "bold",
     flex: 1,
   },
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   footerText: {
-    color: colors.lightGrey2,
+    color: colors.lightGrey1,
     fontSize: 11,
   },
   authorImage: {

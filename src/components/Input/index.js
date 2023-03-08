@@ -24,7 +24,7 @@ const Input = ({
         <TextInput
           {...props}
           editable={!pressable}
-          placeholderTextColor={colors.lightGrey}
+          placeholderTextColor={colors.tealGreen}
           style={styles.input}
           placeholder={placeholder}
         />

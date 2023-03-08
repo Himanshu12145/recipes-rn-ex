@@ -3,9 +3,9 @@ import colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
   item: {
-    fontSize: 12,
+    fontSize: 14,
     color: colors.green,
-    fontWeight: "bold",
+    fontWeight: "900",
     padding: 8,
     paddingHorizontal: 12,
     textTransform: "capitalize",
